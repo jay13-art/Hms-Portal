@@ -1,6 +1,5 @@
 import React from 'react';
-import { Bell, Search, User, Menu, Settings, HelpCircle } from 'lucide-react';
-import { Search, Bell, Settings, Command, Menu } from 'lucide-react';
+import { Bell, Search, User, Menu, Settings, HelpCircle, Command, Sun, Moon } from 'lucide-react';
 
 const Header = ({ user, activeModule, onMenuClick, darkMode, onToggleDarkMode }) => {
   return (
