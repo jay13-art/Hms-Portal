@@ -6,6 +6,12 @@ import PeopleManagement from './PeopleManagement';
 import BedManagement from './BedManagement';
 import AppointmentManagement from './AppointmentManagement';
 import EMRManagement from './EMRManagement';
+import InsuranceManagement from './InsuranceManagement';
+import InventoryManagement from './InventoryManagement';
+import CommunicationManagement from './CommunicationManagement';
+import AIAutomation from './AIAutomation';
+import ReportsAnalytics from './ReportsAnalytics';
+import PatientPortal from './PatientPortal';
 
 const ModuleContainer = ({ moduleId, user }) => {
   const module = MODULES.find(m => m.id === moduleId);
@@ -17,6 +23,12 @@ const ModuleContainer = ({ moduleId, user }) => {
   if (moduleId === 'bed_mgmt') return <BedManagement />;
   if (moduleId === 'appointments') return <AppointmentManagement />;
   if (moduleId === 'emr') return <EMRManagement />;
+  if (moduleId === 'insurance') return <InsuranceManagement />;
+  if (moduleId === 'inventory') return <InventoryManagement />;
+  if (moduleId === 'communication') return <CommunicationManagement />;
+  if (moduleId === 'ai_automation') return <AIAutomation />;
+  if (moduleId === 'reports') return <ReportsAnalytics />;
+  if (moduleId === 'patient_portal') return <PatientPortal />;
 
   return (
     <div className="max-w-7xl mx-auto space-y-6 lg:space-y-10">
@@ -28,14 +40,14 @@ const ModuleContainer = ({ moduleId, user }) => {
             <Icon size={40} className="hidden lg:block" strokeWidth={2.5} />
           </div>
           <div>
-            <h3 className="text-2xl lg:text-4xl font-bold text-slate-900 tracking-tight">{module?.name || 'Enterprise Module'}</h3>
-            <p className="text-sm lg:text-base text-slate-500 font-medium mt-1">
+            <h3 className="text-2xl lg:text-4xl font-bold text-[var(--text-main)] tracking-tight">{module?.name || 'Enterprise Module'}</h3>
+            <p className="text-sm lg:text-base text-[var(--text-muted)] font-medium mt-1">
               Infrastructure control for <span className="text-emerald-600 font-bold">{module?.name || 'System'}</span> services.
             </p>
           </div>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto">
-          <button className="premium-button bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 flex-1 sm:flex-none">
+          <button className="premium-button bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-muted)] hover:bg-[var(--bg-main)] flex-1 sm:flex-none">
             Export Data
           </button>
           <button className="premium-button-primary flex-1 sm:flex-none">
@@ -47,10 +59,10 @@ const ModuleContainer = ({ moduleId, user }) => {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {[
-          { label: 'Active Records', value: '1,284', icon: 'Layers', color: 'text-blue-600', bg: 'bg-blue-50' },
-          { label: 'Pending Reviews', value: '42', icon: 'Clock', color: 'text-amber-600', bg: 'bg-amber-50' },
-          { label: 'Total Volume', value: '$84.2k', icon: 'TrendingUp', color: 'text-emerald-600', bg: 'bg-emerald-50' },
-          { label: 'System Health', value: '99.9%', icon: 'ShieldCheck', color: 'text-indigo-600', bg: 'bg-indigo-50' },
+          { label: 'Active Records', value: '1,284', icon: 'Layers', color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20' },
+          { label: 'Pending Reviews', value: '42', icon: 'Clock', color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-900/20' },
+          { label: 'Total Volume', value: '$84.2k', icon: 'TrendingUp', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
+          { label: 'System Health', value: '99.9%', icon: 'ShieldCheck', color: 'text-indigo-600 dark:text-indigo-400', bg: 'bg-indigo-50 dark:bg-indigo-900/20' },
         ].map((stat, i) => {
           const StatIcon = LucideIcons[stat.icon] || LucideIcons.Activity;
           return (
@@ -59,8 +71,8 @@ const ModuleContainer = ({ moduleId, user }) => {
                 <StatIcon size={24} />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1.5">{stat.label}</p>
-                <p className="text-xl font-bold text-slate-900 tracking-tight">{stat.value}</p>
+                <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest leading-none mb-1.5">{stat.label}</p>
+                <p className="text-xl font-bold text-[var(--text-main)] tracking-tight">{stat.value}</p>
               </div>
             </div>
           );
@@ -70,35 +82,35 @@ const ModuleContainer = ({ moduleId, user }) => {
       {/* Main Content Area */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         <div className="lg:col-span-2 space-y-6">
-          <div className="premium-card overflow-hidden bg-white">
-            <div className="p-5 lg:p-6 border-b border-slate-100 flex items-center justify-between">
-              <h5 className="font-bold text-slate-900 flex items-center gap-2">
+          <div className="premium-card overflow-hidden bg-[var(--bg-card)]">
+            <div className="p-5 lg:p-6 border-b border-[var(--border-color)] flex items-center justify-between">
+              <h5 className="font-bold text-[var(--text-main)] flex items-center gap-2">
                 <LucideIcons.History size={18} className="text-emerald-500" />
                 Recent System Activity
               </h5>
               <div className="flex gap-1.5">
-                <button className="p-2 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all">
+                <button className="p-2 text-[var(--text-muted)] hover:text-emerald-600 hover:bg-emerald-500/10 rounded-xl transition-all">
                   <LucideIcons.Filter size={18} />
                 </button>
-                <button className="p-2 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all">
+                <button className="p-2 text-[var(--text-muted)] hover:text-emerald-600 hover:bg-emerald-500/10 rounded-xl transition-all">
                   <LucideIcons.RotateCcw size={18} />
                 </button>
               </div>
             </div>
-            <div className="divide-y divide-slate-50">
+            <div className="divide-y divide-[var(--border-color)]">
               {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="p-5 lg:p-6 flex items-center justify-between hover:bg-slate-50/50 transition-colors cursor-pointer group">
+                <div key={i} className="p-5 lg:p-6 flex items-center justify-between hover:bg-[var(--bg-main)] transition-colors cursor-pointer group">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-white group-hover:shadow-md group-hover:text-emerald-500 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--bg-main)] flex items-center justify-center text-[var(--text-muted)] group-hover:bg-[var(--bg-card)] group-hover:shadow-md group-hover:text-emerald-500 transition-all duration-300">
                       <LucideIcons.FileText size={18} />
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Resource Entry #{1024 + i}</p>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mt-0.5">Modified by {user.email.split('@')[0]} • 2h ago</p>
+                      <p className="text-sm font-bold text-[var(--text-main)] group-hover:text-emerald-600 transition-colors">Resource Entry #{1024 + i}</p>
+                      <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-tighter mt-0.5">Modified by {user.email.split('@')[0]} • 2h ago</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-wider border border-emerald-100">
+                    <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 text-[10px] font-black uppercase tracking-wider border border-emerald-500/20">
                       Verified
                     </span>
                     <LucideIcons.ChevronRight size={18} className="text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />

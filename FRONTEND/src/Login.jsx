@@ -52,21 +52,21 @@ const Login = ({ onLogin, darkMode, onToggleDarkMode }) => {
           <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <Activity className="text-white" size={28} />
           </div>
-          <h1 className="text-2xl font-bold text-[var(--text-main)] tracking-tight">CareStream <span className="text-emerald-500">HMS</span></h1>
+          <h1 className="text-2xl font-bold text-[var(--text-main)] tracking-tight">HMS <span className="text-emerald-500">System</span></h1>
         </div>
 
         <div className="bg-[var(--bg-card)] rounded-[32px] shadow-xl shadow-slate-200/60 dark:shadow-slate-900/60 border border-[var(--border-color)] overflow-hidden">
           {/* Tabs */}
-          <div className="flex p-2 bg-slate-50 dark:bg-slate-900/50 border-b border-[var(--border-color)]">
+          <div className="flex p-2 bg-[var(--bg-main)] border-b border-[var(--border-color)]">
             <button 
               onClick={() => setActiveTab('login')}
-              className={`flex-1 py-3 text-sm font-bold rounded-2xl transition-all ${activeTab === 'login' ? 'bg-white dark:bg-slate-700 text-emerald-600 shadow-sm border border-[var(--border-color)]' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`flex-1 py-3 text-sm font-bold rounded-2xl transition-all ${activeTab === 'login' ? 'bg-[var(--bg-card)] text-emerald-600 shadow-sm border border-[var(--border-color)]' : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'}`}
             >
               Sign In
             </button>
             <button 
               onClick={() => setActiveTab('demo')}
-              className={`flex-1 py-3 text-sm font-bold rounded-2xl transition-all ${activeTab === 'demo' ? 'bg-white dark:bg-slate-700 text-emerald-600 shadow-sm border border-[var(--border-color)]' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`flex-1 py-3 text-sm font-bold rounded-2xl transition-all ${activeTab === 'demo' ? 'bg-[var(--bg-card)] text-emerald-600 shadow-sm border border-[var(--border-color)]' : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'}`}
             >
               Demo Access
             </button>

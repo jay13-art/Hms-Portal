@@ -25,4 +25,10 @@ export const MODULES = [
   { id: 'cases', name: 'Case Management', icon: 'Briefcase', roles: [ROLES.ADMIN, ROLES.CASE_MANAGER] },
   { id: 'reception', name: 'Reception', icon: 'Phone', roles: [ROLES.ADMIN, ROLES.RECEPTIONIST] },
   { id: 'representative', name: 'Representative', icon: 'UserCircle', roles: [ROLES.ADMIN, ROLES.REPRESENTATIVE] },
+  { id: 'insurance', name: 'Insurance & TPA', icon: 'ShieldCheck', roles: [ROLES.ADMIN, ROLES.ACCOUNTANT, ROLES.CASE_MANAGER] },
+  { id: 'inventory', name: 'Inventory & Supplies', icon: 'Package', roles: [ROLES.ADMIN, ROLES.ACCOUNTANT] },
+  { id: 'communication', name: 'Communication', icon: 'MessageSquare', roles: Object.values(ROLES) },
+  { id: 'ai_automation', name: 'AI & Automation', icon: 'Brain', roles: [ROLES.ADMIN, ROLES.DOCTOR, ROLES.CASE_MANAGER] },
+  { id: 'reports', name: 'Reports & Analytics', icon: 'BarChart3', roles: [ROLES.ADMIN, ROLES.FINANCE, ROLES.C_SUITE] },
+  { id: 'patient_portal', name: 'Patient Portal', icon: 'User', roles: [ROLES.ADMIN, ROLES.PATIENT] },
 ];

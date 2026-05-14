@@ -32,9 +32,9 @@ const PeopleManagement = () => {
     const list = peopleData[type] || [];
     return (
       <div className="premium-card overflow-hidden animate-fade-in">
-        <div className="p-6 border-b border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 border-b border-[var(--border-color)] flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="relative w-full md:w-96">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" size={18} />
             <input
               type="text"
               placeholder={`Search ${type}...`}
@@ -44,7 +44,7 @@ const PeopleManagement = () => {
             />
           </div>
           <div className="flex items-center gap-3 w-full md:w-auto">
-            <button className="premium-button bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center gap-2">
+            <button className="premium-button bg-[var(--bg-main)] text-[var(--text-muted)] hover:bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center gap-2">
               <Filter size={18} /> Filter
             </button>
             <button className="premium-button-primary flex items-center gap-2 whitespace-nowrap">
@@ -55,7 +55,7 @@ const PeopleManagement = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="bg-slate-50/50 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
+              <tr className="bg-[var(--bg-main)] text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest border-b border-[var(--border-color)]">
                 <th className="px-8 py-5">Profile & ID</th>
                 <th className="px-8 py-5">
                   {type === 'patients' ? 'Demographics' : type === 'doctors' ? 'Clinical Profile' : 'Role & Operations'}
@@ -65,29 +65,29 @@ const PeopleManagement = () => {
                 <th className="px-8 py-5 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-50">
+            <tbody className="divide-y divide-[var(--border-color)]">
               {list.map((person) => (
-                <tr key={person.id} className="hover:bg-slate-50/50 transition-colors group">
+                <tr key={person.id} className="hover:bg-[var(--bg-main)] transition-colors group">
                   <td className="px-8 py-5">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-700 font-bold text-lg border border-white shadow-sm group-hover:scale-105 transition-transform duration-300">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--bg-main)] to-[var(--bg-card)] flex items-center justify-center text-[var(--text-main)] font-bold text-lg border border-[var(--border-color)] shadow-sm group-hover:scale-105 transition-transform duration-300">
                         {person.avatar}
                       </div>
                       <div>
-                        <p className="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">{person.name}</p>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">{person.id}</p>
+                        <p className="font-bold text-[var(--text-main)] group-hover:text-emerald-600 transition-colors">{person.name}</p>
+                        <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-tighter">{person.id}</p>
                       </div>
                     </div>
                   </td>
                   <td className="px-8 py-5">
                     {type === 'patients' ? (
                       <div>
-                        <p className="text-slate-700 font-semibold">{person.age} Years • {person.gender}</p>
-                        <p className="text-xs text-slate-400 font-medium">Last Visit: {person.lastVisit}</p>
+                        <p className="text-[var(--text-main)] font-semibold">{person.age} Years • {person.gender}</p>
+                        <p className="text-xs text-[var(--text-muted)] font-medium">Last Visit: {person.lastVisit}</p>
                       </div>
                     ) : (
                       <div>
-                        <p className="text-slate-900 font-bold">{person.role}</p>
+                        <p className="text-[var(--text-main)] font-bold">{person.role}</p>
                         <p className="text-xs text-emerald-600 font-bold flex items-center gap-1">
                           <BadgeCheck size={12} /> {person.qualification || person.dept}
                         </p>
@@ -96,28 +96,28 @@ const PeopleManagement = () => {
                   </td>
                   <td className="px-8 py-5">
                     <div className="space-y-1.5">
-                      <p className="text-sm text-slate-600 flex items-center gap-2 font-medium">
-                        <Phone size={14} className="text-emerald-500" /> {person.contact}
+                      <p className="text-sm text-[var(--text-main)] flex items-center gap-2 font-medium transition-colors">
+                        <Phone size={14} className="text-emerald-500 transition-transform group-hover:scale-110" /> {person.contact}
                       </p>
-                      <p className="text-xs text-slate-400 flex items-center gap-2">
-                        <Mail size={14} className="text-slate-300" /> {person.name.toLowerCase().replace(' ', '.')}@carestream.com
+                      <p className="text-xs text-[var(--text-muted)] flex items-center gap-2 transition-colors">
+                        <Mail size={14} className="text-slate-300 dark:text-slate-600 transition-transform group-hover:scale-110" /> {person.name.toLowerCase().replace(' ', '.')}@hmssystem.com
                       </p>
                     </div>
                   </td>
                   <td className="px-8 py-5">
-                    <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 w-fit ${
+                    <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 w-fit transition-all duration-300 ${
                       person.status === 'Active' || person.status === 'On Duty' || person.status === 'Available'
-                        ? 'bg-emerald-50 text-emerald-600 border border-emerald-100'
-                        : 'bg-slate-100 text-slate-500 border border-slate-200'
+                        ? 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20'
+                        : 'bg-[var(--bg-main)] text-[var(--text-muted)] border border-[var(--border-color)]'
                     }`}>
                       {(person.status === 'Active' || person.status === 'On Duty' || person.status === 'Available') && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse transition-all"></span>
                       )}
                       {person.status}
                     </span>
                   </td>
                   <td className="px-8 py-5 text-right">
-                    <button className="p-2.5 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all">
+                    <button className="p-2.5 text-[var(--text-muted)] hover:text-emerald-600 hover:bg-emerald-500/10 rounded-xl transition-all">
                       <MoreHorizontal size={20} />
                     </button>
                   </td>
@@ -134,17 +134,17 @@ const PeopleManagement = () => {
     <div className="space-y-8 animate-fade-in">
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-2">People & Identity</h2>
-          <p className="text-slate-500 font-medium max-w-xl">
+          <h2 className="text-3xl font-bold text-[var(--text-main)] tracking-tight mb-2">People & Identity</h2>
+          <p className="text-[var(--text-muted)] font-medium max-w-xl">
             Centralized ecosystem for managing patient records, clinical staff availability, and organizational administrative hierarchy.
           </p>
         </div>
         <div className="flex gap-4">
-          <div className="premium-card px-5 py-3 border-none bg-white shadow-xl shadow-slate-200/50">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Total Population</p>
-            <p className="text-2xl font-bold text-slate-900 leading-none">1,254</p>
+          <div className="premium-card px-5 py-3 border-none bg-[var(--bg-card)] shadow-xl shadow-black/5 hover:-translate-y-1 transition-all">
+            <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest mb-1">Total Population</p>
+            <p className="text-2xl font-bold text-[var(--text-main)] leading-none">1,254</p>
           </div>
-          <div className="premium-card px-5 py-3 border-none bg-emerald-600 text-white shadow-xl shadow-emerald-500/20">
+          <div className="premium-card px-5 py-3 border-none bg-emerald-600 text-white shadow-xl shadow-emerald-500/20 hover:-translate-y-1 transition-all">
             <p className="text-[10px] font-bold text-emerald-200 uppercase tracking-widest mb-1">On-Duty Staff</p>
             <p className="text-2xl font-bold leading-none">86</p>
           </div>
@@ -152,7 +152,7 @@ const PeopleManagement = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-1 bg-slate-100/50 p-1 rounded-2xl w-fit border border-slate-200/50">
+      <div className="flex items-center gap-1 bg-[var(--bg-main)] p-1 rounded-2xl w-fit border border-[var(--border-color)]">
         {tabs.map(tab => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -162,11 +162,11 @@ const PeopleManagement = () => {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${
                 isActive 
-                  ? 'bg-white text-emerald-600 shadow-sm border border-slate-200/50' 
-                  : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
+                  ? 'bg-[var(--bg-card)] text-emerald-600 shadow-sm border border-[var(--border-color)]' 
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-card)]/50'
               }`}
             >
-              <Icon size={18} className={isActive ? 'text-emerald-500' : 'text-slate-400'} /> 
+              <Icon size={18} className={isActive ? 'text-emerald-500' : 'text-[var(--text-muted)]'} /> 
               {tab.name}
             </button>
           );

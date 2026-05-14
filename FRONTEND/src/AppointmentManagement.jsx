@@ -23,13 +23,13 @@ const AppointmentManagement = () => {
     <div className="space-y-8 animate-fade-in">
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-2">Appointments & Scheduling</h2>
-          <p className="text-slate-500 font-medium max-w-xl">
+          <h2 className="text-3xl font-bold text-[var(--text-main)] tracking-tight mb-2">Appointments & Scheduling</h2>
+          <p className="text-[var(--text-muted)] font-medium max-w-xl">
             Unified healthcare scheduling engine powered by real-time resource availability and AI-voice integration.
           </p>
         </div>
         <div className="flex gap-3">
-          <button className="premium-button bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center gap-2">
+          <button className="premium-button bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-muted)] hover:bg-[var(--bg-main)] flex items-center gap-2">
             <Mic size={18} className="text-blue-500" /> AI Booking
           </button>
           <button className="premium-button-primary flex items-center gap-2">
@@ -47,10 +47,10 @@ const AppointmentManagement = () => {
                 <stat.icon size={24} />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">{stat.label}</p>
+                <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest mb-0.5">{stat.label}</p>
                 <div className="flex items-center gap-2">
-                  <p className="text-2xl font-bold text-slate-900">{stat.value}</p>
-                  <span className="flex items-center text-[10px] font-bold text-emerald-500 bg-emerald-50 px-1 rounded">
+                  <p className="text-2xl font-bold text-[var(--text-main)]">{stat.value}</p>
+                  <span className="flex items-center text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-1 rounded">
                     <TrendingUp size={10} /> +4%
                   </span>
                 </div>
@@ -63,17 +63,17 @@ const AppointmentManagement = () => {
       {/* Main Table Container */}
       <div className="premium-card overflow-hidden">
         {/* Toolbar */}
-        <div className="p-6 border-b border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6 bg-white">
-          <div className="flex items-center gap-1 bg-slate-100/50 p-1 rounded-xl border border-slate-200/50">
+        <div className="p-6 border-b border-[var(--border-color)] flex flex-col md:flex-row items-center justify-between gap-6 bg-[var(--bg-card)]">
+          <div className="flex items-center gap-1 bg-[var(--bg-main)] p-1 rounded-xl border border-[var(--border-color)]">
             <button 
               onClick={() => setView('list')}
-              className={`px-5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all duration-300 ${view === 'list' ? 'bg-white text-emerald-600 shadow-sm border border-slate-200/50' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`px-5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all duration-300 ${view === 'list' ? 'bg-[var(--bg-card)] text-emerald-600 shadow-sm border border-[var(--border-color)]' : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'}`}
             >
               <List size={16} /> List
             </button>
             <button 
               onClick={() => setView('calendar')}
-              className={`px-5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all duration-300 ${view === 'calendar' ? 'bg-white text-emerald-600 shadow-sm border border-slate-200/50' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`px-5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all duration-300 ${view === 'calendar' ? 'bg-[var(--bg-card)] text-emerald-600 shadow-sm border border-[var(--border-color)]' : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'}`}
             >
               <CalendarIcon size={16} /> Calendar
             </button>
@@ -81,14 +81,14 @@ const AppointmentManagement = () => {
 
           <div className="flex items-center gap-4 w-full md:w-auto">
             <div className="relative flex-1 md:w-80">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" size={18} />
               <input 
                 type="text" 
                 placeholder="Search by patient name, ID or doctor..." 
                 className="premium-input pl-12"
               />
             </div>
-            <button className="p-2.5 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-all">
+            <button className="p-2.5 bg-[var(--bg-main)] text-[var(--text-muted)] border border-[var(--border-color)] rounded-xl hover:bg-[var(--bg-card)] transition-all">
               <Filter size={20} />
             </button>
           </div>
@@ -99,21 +99,21 @@ const AppointmentManagement = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-slate-50/50 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
-                  <th className="px-8 py-5">Scheduled Slot</th>
-                  <th className="px-8 py-5">Patient & Case ID</th>
-                  <th className="px-8 py-5">Assigned Consultant</th>
-                  <th className="px-8 py-5">Session Type</th>
-                  <th className="px-8 py-5">Workflow Status</th>
-                  <th className="px-8 py-5 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-50">
+              <tr className="bg-[var(--bg-main)] text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest border-b border-[var(--border-color)]">
+                <th className="px-8 py-5">Scheduled Slot</th>
+                <th className="px-8 py-5">Patient & Case ID</th>
+                <th className="px-8 py-5">Assigned Consultant</th>
+                <th className="px-8 py-5">Session Type</th>
+                <th className="px-8 py-5">Workflow Status</th>
+                <th className="px-8 py-5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[var(--border-color)]">
                 {appointments.map((app) => (
-                  <tr key={app.id} className="hover:bg-slate-50/50 transition-colors group">
+                  <tr key={app.id} className="hover:bg-[var(--bg-main)] transition-colors group">
                     <td className="px-8 py-5">
-                      <div className="flex items-center gap-3 text-slate-900 font-bold">
-                        <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-white group-hover:text-emerald-500 transition-all shadow-sm">
+                      <div className="flex items-center gap-3 text-[var(--text-main)] font-bold">
+                        <div className="w-8 h-8 rounded-lg bg-[var(--bg-main)] flex items-center justify-center text-[var(--text-muted)] group-hover:bg-[var(--bg-card)] group-hover:text-emerald-500 transition-all shadow-sm">
                           <Clock size={16} />
                         </div>
                         {app.time}
@@ -121,29 +121,29 @@ const AppointmentManagement = () => {
                     </td>
                     <td className="px-8 py-5">
                       <div>
-                        <p className="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">{app.patient}</p>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">{app.id}</p>
+                        <p className="font-bold text-[var(--text-main)] group-hover:text-emerald-600 transition-colors">{app.patient}</p>
+                        <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-tighter">{app.id}</p>
                       </div>
                     </td>
                     <td className="px-8 py-5">
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-[10px] font-bold">
+                        <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-[10px] font-bold">
                           {app.doctor.split(' ')[1][0]}
                         </div>
-                        <p className="text-slate-600 font-medium">{app.doctor}</p>
+                        <p className="text-[var(--text-muted)] font-medium">{app.doctor}</p>
                       </div>
                     </td>
                     <td className="px-8 py-5">
-                      <span className="px-3 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded-full uppercase tracking-wider">
+                      <span className="px-3 py-1 bg-[var(--bg-main)] text-[var(--text-muted)] text-[10px] font-bold rounded-full uppercase tracking-wider border border-[var(--border-color)] transition-all duration-300">
                         {app.type}
                       </span>
                     </td>
                     <td className="px-8 py-5">
-                      <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 w-fit ${
-                        app.status === 'Checked In' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
-                        app.status === 'In Progress' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
-                        app.status === 'Waitlist' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
-                        'bg-slate-100 text-slate-500 border border-slate-200'
+                      <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 w-fit transition-all duration-300 ${
+                        app.status === 'Checked In' ? 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20' :
+                        app.status === 'In Progress' ? 'bg-blue-500/10 text-blue-600 border border-blue-500/20' :
+                        app.status === 'Waitlist' ? 'bg-amber-500/10 text-amber-600 border border-amber-500/20' :
+                        'bg-[var(--bg-main)] text-[var(--text-muted)] border border-[var(--border-color)]'
                       }`}>
                         {app.status}
                       </span>
@@ -161,14 +161,14 @@ const AppointmentManagement = () => {
           </div>
         ) : (
           <div className="p-20 text-center flex flex-col items-center animate-fade-in">
-            <div className="w-24 h-24 bg-slate-50 rounded-3xl flex items-center justify-center text-slate-300 mb-8 border border-slate-100 shadow-inner">
+            <div className="w-24 h-24 bg-[var(--bg-main)] rounded-3xl flex items-center justify-center text-[var(--text-muted)] mb-8 border border-[var(--border-color)] shadow-inner">
               <CalendarIcon size={48} />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">Enterprise Calendar Module</h3>
-            <p className="text-slate-500 font-medium max-w-sm mx-auto mb-10">
+            <h3 className="text-2xl font-bold text-[var(--text-main)] mb-2">Enterprise Calendar Module</h3>
+            <p className="text-[var(--text-muted)] font-medium max-w-sm mx-auto mb-10">
               Interactive provider-level scheduling with drag-and-drop optimization and multi-facility synchronization.
             </p>
-            <button className="premium-button bg-slate-900 text-white hover:bg-slate-800 shadow-xl shadow-slate-900/20">
+            <button className="premium-button bg-[var(--text-main)] text-[var(--bg-main)] hover:bg-emerald-600 transition-colors shadow-xl shadow-black/10">
               Configure Advanced View
             </button>
           </div>
@@ -206,28 +206,28 @@ const AppointmentManagement = () => {
           <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-[100px] -mr-40 -mt-40 transition-all group-hover:bg-emerald-500/10"></div>
         </div>
 
-        <div className="premium-card p-10 bg-white/50 backdrop-blur-sm border-slate-200/50">
+        <div className="premium-card p-10 bg-[var(--bg-card)]/50 backdrop-blur-sm border-[var(--border-color)]">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
                 <List size={24} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900">Walk-in Queue</h3>
+              <h3 className="text-xl font-bold text-[var(--text-main)]">Walk-in Queue</h3>
             </div>
-            <span className="px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-bold rounded-full uppercase tracking-widest border border-emerald-100">
+            <span className="px-3 py-1 bg-emerald-500/10 text-emerald-600 text-[10px] font-bold rounded-full uppercase tracking-widest border border-emerald-500/20 transition-all duration-300">
               Live Feed
             </span>
           </div>
           <div className="space-y-4">
             {[1, 2].map(i => (
-              <div key={i} className="flex items-center justify-between p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+              <div key={i} className="flex items-center justify-between p-5 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-sm hover:shadow-md transition-all group cursor-pointer">
                 <div className="flex items-center gap-5">
-                  <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-sm">
+                  <div className="w-10 h-10 rounded-xl bg-[var(--text-main)] text-[var(--bg-main)] flex items-center justify-center font-bold text-sm">
                     #{i}
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Token ID: TK-29{i}</p>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Est. Wait Time: {5 * i} Minutes</p>
+                    <p className="text-sm font-bold text-[var(--text-main)] group-hover:text-emerald-600 transition-colors">Token ID: TK-29{i}</p>
+                    <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-tighter">Est. Wait Time: {5 * i} Minutes</p>
                   </div>
                 </div>
                 <ChevronRight size={18} className="text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />

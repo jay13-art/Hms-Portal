@@ -7,7 +7,7 @@ const Header = ({ user, activeModule, onMenuClick, darkMode, onToggleDarkMode })
       <div className="flex items-center justify-between gap-4">
         {/* Left: Mobile Menu & Module Name */}
         <div className="flex items-center gap-4">
-          <button 
+          <button
             onClick={onMenuClick}
             className="lg:hidden p-2 text-[var(--text-main)] hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
           >
@@ -18,7 +18,7 @@ const Header = ({ user, activeModule, onMenuClick, darkMode, onToggleDarkMode })
               {activeModule.replace(/([A-Z])/g, ' $1').trim()}
             </h1>
             <p className="hidden sm:block text-[10px] font-bold text-emerald-600 uppercase tracking-widest mt-0.5">
-              CareStream HMS Portal
+              HMS System Portal
             </p>
           </div>
         </div>
@@ -28,9 +28,9 @@ const Header = ({ user, activeModule, onMenuClick, darkMode, onToggleDarkMode })
           <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-500 transition-colors">
             <Search size={18} />
           </div>
-          <input 
-            type="text" 
-            placeholder="Search clinical records... (Cmd+K)" 
+          <input
+            type="text"
+            placeholder="Search clinical records... (Cmd+K)"
             className="premium-input pl-12 pr-12 py-2.5"
           />
           <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden lg:flex items-center gap-1 px-1.5 py-1 bg-[var(--bg-card)] rounded-lg border border-[var(--border-color)] shadow-sm">
@@ -41,7 +41,7 @@ const Header = ({ user, activeModule, onMenuClick, darkMode, onToggleDarkMode })
 
         {/* Right: Actions */}
         <div className="flex items-center gap-2 lg:gap-4">
-          <button 
+          <button
             onClick={onToggleDarkMode}
             className="p-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-2xl transition-all group"
             title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
